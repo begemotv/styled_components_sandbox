@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import {Link as RouterLink, useLocation} from 'react-router-dom';
+import {Toggle} from '../toggle/toggle';
 
 const HeaderWrapper = styled.header`
   height: 60px;
@@ -10,8 +11,8 @@ const HeaderWrapper = styled.header`
   padding: 0 16px;
   position: fixed;
   top: 0;
-  background-image: linear-gradient(to right, #f8049c, #fdd54f);
-  border-bottom: 3px solid #fdd54f;
+  background-image: linear-gradient(to right, ${props => props.theme.primaryColor}, ${props => props.theme.secondaryColor});
+  border-bottom: 3px solid ${props => props.theme.secondaryColor};
   background-color: white;
 `;
 
@@ -91,6 +92,7 @@ const Header = () => {
         <StyledLink to="/login" isActive={pathname === '/login'}>
           Login
         </StyledLink>
+        <Toggle />
       </Menu>
     </HeaderWrapper>
   )
