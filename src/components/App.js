@@ -8,10 +8,10 @@ import themeDark from '../themes/dark';
 
 const GlobalStyle = createGlobalStyle`
   body{
-    background: white;
+    background: ${p => p.theme.bodyBackgroundColor};
     min-height: 100vh;
     margin: 0;
-    color: black;
+    color: ${p => p.theme.bodyFontColor};
     font-family: 'Kaushan Script'
   }
 `;
@@ -21,7 +21,7 @@ const App = () => {
 
   return (
     <ThemeProvider theme={{...theme, setTheme: () => {
-      setTheme(state => state.theme.id === 'light' ? themeDark : themeLight);
+      setTheme(state => state.id === 'light' ? themeDark : themeLight);
     }}}>
       <GlobalStyle />
       <BrowserRouter>
